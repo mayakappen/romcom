@@ -57,6 +57,8 @@ makeYourOwnButton.addEventListener('click', makeNewPage)
 
 viewSaveCoverButton.addEventListener('click', savedView)
 
+saveCoverButton.addEventListener('click', saveImage)
+
 homeButton.addEventListener('click', viewHome)
 
 createNewBookButton.addEventListener('click', userBookAdd)
@@ -131,6 +133,7 @@ function userBookAdd(event) {
 
   currentCover = new Cover(coverNew, titleNew, descriptor1New, descriptor2New);
 
+
 console.log(currentCover);
 
   viewFormView.classList.add('hidden');
@@ -139,6 +142,11 @@ console.log(currentCover);
 
 viewHome();
 
+};
+
+function saveImage() {
+  var coverSaved = new Cover(currentCover.cover, currentCover.title, currentCover.tagline1, currentCover.tagline2);
+  savedCovers.push(coverSaved);
 };
 
 ///getRandomCover()
