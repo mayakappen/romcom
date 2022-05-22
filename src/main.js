@@ -39,6 +39,8 @@ var savedCoverSection = document.querySelector('.saved-covers-section');
 
 
 
+
+
 //
 // var formCover = document.querySelector('#cover');
 //
@@ -71,6 +73,8 @@ saveCoverButton.addEventListener('click', saveCover)
 homeButton.addEventListener('click', viewHome)
 
 createNewBookButton.addEventListener('click', userBookAdd)
+
+miniCover.addEventListener('dblclick', deleteBook)
 
 // Create your event handlers and other functions here 👇
 
@@ -108,6 +112,7 @@ for (var i =0; i < savedCovers.length; i++) {
 
   </section>`
   }
+  findSavedCover()
 };
 
 function viewHome() {
@@ -179,4 +184,21 @@ savedCovers.push(currentCover);
 }
 };
 
+
+funciton findMiniCover() {
+  var miniCovers = document.querySelectorAll('.mini-cover')
+  for (var i = 0; i < miniCovers.length; i++) {
+    miniCovers[i].addEventListener('dblclick', deleteBook)
+  }
+}
+
+function deleteBook(event) {
+  event.preventDefault()
+  for (var i = 0; i < savedCovers.length; i++) {
+
+  if (miniCover.id === savedCovers[i].id) {
+  miniCovers.splice(this.id, 1);
+  }
+}
+}
 ///getRandomCover()
