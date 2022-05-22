@@ -93,8 +93,8 @@ homeButton.classList.remove('hidden');
 viewSavedView.classList.add('hidden')
 }
 
-function savedView(event) {
-event.preventDefault();
+function savedView() {
+
 viewHomeView.classList.add('hidden');
 getRandomButton.classList.add('hidden');
 saveCoverButton.classList.add('hidden');
@@ -102,7 +102,7 @@ homeButton.classList.remove('hidden');
 viewSavedView.classList.remove('hidden');
 viewFormView.classList.add('hidden');
 
-savedCoverSection.innerHTML = " ";
+savedCoverSection.innerHTML = "";
 for (var i =0; i < savedCovers.length; i++) {
 
   savedCoverSection.innerHTML += `<section class="mini-cover" id="${savedCovers[i].id}">
@@ -194,8 +194,16 @@ function findMiniCover() {
 }
 
 function deleteBook(event) {
-  event.preventDefault()
+  event.preventDefault();
+  for (var i = 0; i < savedCovers.length; i++) {
+console.log(typeof event.target.parentNode.id, "event target");
+console.log(typeof savedCovers[i].id);
+    if (event.target.parentNode.id === `${savedCovers[i].id}`) {
 
-  console.log('hello')
+      savedCovers.splice(i, 1)
+    }
+  }
+savedView()
+  console.log(event.target.parentNode.id);
 }
 ///getRandomCover()
