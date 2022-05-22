@@ -74,7 +74,7 @@ homeButton.addEventListener('click', viewHome)
 
 createNewBookButton.addEventListener('click', userBookAdd)
 
-miniCover.addEventListener('dblclick', deleteBook)
+
 
 // Create your event handlers and other functions here 👇
 
@@ -112,7 +112,7 @@ for (var i =0; i < savedCovers.length; i++) {
 
   </section>`
   }
-  findSavedCover()
+  findMiniCover()
 };
 
 function viewHome() {
@@ -185,20 +185,17 @@ savedCovers.push(currentCover);
 };
 
 
-funciton findMiniCover() {
+function findMiniCover() {
   var miniCovers = document.querySelectorAll('.mini-cover')
   for (var i = 0; i < miniCovers.length; i++) {
     miniCovers[i].addEventListener('dblclick', deleteBook)
   }
+
 }
 
 function deleteBook(event) {
   event.preventDefault()
-  for (var i = 0; i < savedCovers.length; i++) {
 
-  if (miniCover.id === savedCovers[i].id) {
-  miniCovers.splice(this.id, 1);
-  }
-}
+  console.log('hello')
 }
 ///getRandomCover()
