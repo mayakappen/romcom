@@ -57,7 +57,7 @@ makeYourOwnButton.addEventListener('click', makeNewPage)
 
 viewSaveCoverButton.addEventListener('click', savedView)
 
-saveCoverButton.addEventListener('click', saveImage)
+saveCoverButton.addEventListener('click', saveCover)
 
 homeButton.addEventListener('click', viewHome)
 
@@ -89,6 +89,7 @@ saveCoverButton.classList.add('hidden');
 homeButton.classList.remove('hidden');
 viewSavedView.classList.remove('hidden');
 viewFormView.classList.add('hidden');
+return savedCovers
 }
 
 function viewHome() {
@@ -144,9 +145,11 @@ viewHome();
 
 };
 
-function saveImage() {
-  var coverSaved = new Cover(currentCover.cover, currentCover.title, currentCover.tagline1, currentCover.tagline2);
-  savedCovers.push(coverSaved);
+function saveCover() {
+///var coverSaved = new Cover(currentCover.cover, currentCover.title, currentCover.tagline1, currentCover.tagline2);
+if (!savedCovers.includes(currentCover)) {
+savedCovers.push(currentCover);
+}
 };
 
 ///getRandomCover()
